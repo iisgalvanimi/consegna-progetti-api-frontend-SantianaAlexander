@@ -1,9 +1,28 @@
+<!-- RICHIESTA GET -->
 <h2>Basic Request</h2>
 <button type="button" (click)="makeRequest()">Make Request</button>
 <div *ngIf="loading">loading...</div>
 <pre>{{data | json}}</pre>
 <br>
+<hr>
+
+<!-- RICHIESTA POST -->
 <h2>Basic Post</h2>
 <button type="button" (click)="makeCompactPost()">Make Post</button>
 <div *ngIf="loading">loading...</div>
 <pre>{{data | json}}</pre>
+<br>
+<hr>
+<br>
+
+<button type="button" (click)="makeTypedRequest()">Make typed request</button>
+
+<!--Uso un ciclo for per scandire tutta la lista di articoli-->
+<div *ngFor="let art of fooData">
+   <h3>{{art.title}}</h3>
+   <b>post {{art.id}} di utente #: {{art.userId}}</b>
+   <div>
+       {{art.body}}
+   </div>
+   <hr>
+</div>
