@@ -1,1 +1,10 @@
-<p>fruit-component works!</p>
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 8rem;" *ngFor="let fruit of fruits">
+            <div class="card-body">
+              <h5 class="card-title">{{fruit.name}}</h5>
+              <p class="card-text">{{fruit.emoji}}</p>
+            </div>
+          </div>
+    </div>
+</div>
