@@ -1,4 +1,18 @@
-<div class="container-fluid">
-    <div class="row">
-    <pre>{{data | json}}</pre>
+<div *ngIf="loading">Caricamento in corso...</div>
+
+<div class="container-fluid text-center" *ngIf="!loading">
+    <div class="row pt-5">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="card col-lg-2 col-sm-3 col-4">
+                <div class="card-body">
+                    <h2>{{ carta1Data.name | uppercase }}</h2>
+                    <p>ID: {{ carta1Data.id }}</p>
+                    <p>Peso: {{ carta1Data.weight }} hg</p>
+                    <p>Altezza: {{ carta1Data.height }} decimetri</p>
+                    <p>Tipo: {{ carta1Data.types[0]?.type?.name }}</p>
+                    <img [src]="carta1Data.sprites.front_default" alt="{{ carta1Data.name }}"/>
+                </div>
+              </div>
+        </div>
+    </div>
 </div>

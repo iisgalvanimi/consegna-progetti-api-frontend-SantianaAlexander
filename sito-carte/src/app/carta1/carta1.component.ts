@@ -15,7 +15,7 @@ interface PokemonData {
 })
 export class Carta1Component implements OnInit {
   
-  carta1Data!: Carta1[];
+  carta1Data!: Carta1;
   data!: Object;
   loading!: boolean;
   o!: Observable<Object>;
@@ -26,10 +26,14 @@ export class Carta1Component implements OnInit {
     this.makeTypedRequest();  
   }
    
-  makeTypedRequest() : void
-  {
-    this.oCarta1 = this.http.get<Carta1[]>('https://pokeapi.co/api/v2/pokemon/ditto');
-    this.oCarta1.subscribe(data => {this.carta1Data = data;});
+  makeTypedRequest(): void {
+    this.http.get<Carta1>('https://pokeapi.co/api/v2/pokemon/ditto')
+      .subscribe({
+        next: (data) => {
+          this.carta1Data = data;  // Assegna i dati alla variabile carta1Data
+          this.loading = false;  // Imposta il loading a false quando i dati sono arrivati
+        },
+      });
   }
  
    getData = (d: PokemonData) => {
