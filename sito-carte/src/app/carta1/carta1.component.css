@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Gameboy;
+    src: url("../../assets/fonts/Early GameBoy.ttf") format("truetype");
+}
+#name {
+    text-transform: uppercase;
+    font-family: Gameboy;
+}
