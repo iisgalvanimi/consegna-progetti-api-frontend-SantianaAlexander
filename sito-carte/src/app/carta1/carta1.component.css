@@ -1,19 +1,50 @@
-@font-face {
-    font-family: Gameboy;
-    src: url("../../assets/fonts/Early GameBoy.ttf") format("truetype");
-}
-#name {
-    text-transform: uppercase;
-    font-family: Gameboy;
-}
-.card {
-    box-shadow: rgba(128, 0, 128, 0.25) 0px 54px 55px, 
-            rgba(128, 0, 128, 0.12) 0px -12px 30px, 
-            rgba(128, 0, 128, 0.12) 0px 4px 6px, 
-            rgba(128, 0, 128, 0.17) 0px 12px 13px, 
-            rgba(128, 0, 128, 0.09) 0px -3px 5px;
-    transition: transform .2s;
-}
-.card:hover {
-    transform: scale(1.2);
-}
+/* Centratura verticale e orizzontale della card */
+.card-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Imposta altezza 100vh per centrare la card nel viewport */
+  }
+  
+  /* Contenitore principale della card e dell'immagine */
+  .card-wrapper {
+    display: flex;
+    align-items: center;  /* Centra verticalmente immagine e card */
+    justify-content: center;
+    width: 80%;  /* Imposta la larghezza complessiva a 80% della finestra */
+  }
+  
+  /* Stile dell'immagine fuori dalla card */
+  .card-img-left {
+    width: 25%;  /* Imposta la larghezza dell'immagine come 25% della larghezza totale */
+    height: auto; /* Mantieni le proporzioni corrette dell'immagine */
+    object-fit: cover; /* Mantieni l'immagine ben proporzionata */
+    border-radius: 8px; /* Bordo arrotondato per l'immagine */
+    margin-right: 20px;  /* Distanza tra l'immagine e la card */
+  }
+  
+  /* Design della card con i dati */
+  .card {
+    display: flex;
+    flex-direction: column; /* I dati saranno disposti in colonna */
+    justify-content: center;
+    flex-grow: 1; /* La card cresce automaticamente per occupare lo spazio rimanente */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+  }
+  
+  /* Stile del corpo della card */
+  .card-body h5 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;  /* Dimensione font per il titolo */
+    font-weight: bold;
+  }
+  
+  .card-body p {
+    font-size: 0.9rem;  /* Dimensione font per il testo */
+    color: #555;
+  }
+  

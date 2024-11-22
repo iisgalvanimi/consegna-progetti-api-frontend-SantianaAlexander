@@ -1,18 +1,31 @@
 <div *ngIf="loading">Caricamento in corso...</div>
 
-<div class="container-fluid text-center" *ngIf="!loading">
-    <div class="row pt-5">
-        <div class="d-flex justify-content-center align-items-center">
-            <div class="card col-lg-2 col-sm-3 col-4">
-                <div class="card-body">
-                    <h2>{{ carta1Data.name | uppercase }}</h2>
-                    <p>ID: {{ carta1Data.id }}</p>
-                    <p>Peso: {{ carta1Data.weight }} hg</p>
-                    <p>Altezza: {{ carta1Data.height }} decimetri</p>
-                    <p>Tipo: {{ carta1Data.types[0]?.type?.name }}</p>
-                    <img class="img-fluid img pb-5 immagine" [src]="carta1Data.sprites.front_default" alt="{{ carta1Data.name }}"/>
-                </div>
-              </div>
-        </div>
+<!-- Contenitore per immagine e card -->
+<div *ngIf="!loading && carta1Data" class="container card-custom">
+    <div class="row">
+<div class="card-wrapper">
+    <!-- Immagine fuori dalla card, a sinistra -->
+    <img [src]="carta1Data?.images?.small" [alt]="carta1Data?.name" class="card-img-left img-fluid" />
+
+    <!-- Card con i dati a destra dell'immagine -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ carta1Data?.name }}</h5>
+        <p class="card-text">Tipo: {{ carta1Data?.types?.join(', ') }}</p>
+        <p class="card-text">Set: {{ carta1Data?.set?.name }}</p>
+      </div>
     </div>
+  </div>
+    </div>
+  
+</div>
+
+<!-- Messaggio di errore -->
+<div *ngIf="!loading && error">
+  <p>Si è verificato un errore nel recuperare la carta Ditto.</p>
+</div>
+
+<!-- Messaggio se non è stata trovata la carta Ditto -->
+<div *ngIf="!loading && !carta1Data">
+  <p>Nessuna carta Ditto trovata.</p>
 </div>
