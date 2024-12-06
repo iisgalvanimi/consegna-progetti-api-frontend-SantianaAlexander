@@ -1,1 +1,22 @@
-<p>carta3 works!</p>
+<div *ngIf="loading">Caricamento in corso...</div>
+
+<div *ngIf="!loading && carta3Data" class="container card-custom">
+  <div class="card-wrapper">
+    <img [src]="carta3Data?.images?.small" [alt]="carta3Data?.name" class="card-img-left img-fluid" />
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ carta3Data?.name }}</h5>
+        <p class="card-text">Tipo: {{ carta3Data?.types?.join(', ') }}</p>
+        <p class="card-text">Set: {{ carta3Data?.set?.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading && error">
+  <p>Si è verificato un errore nel recuperare la carta Mew.</p>
+</div>
+
+<div *ngIf="!loading && !carta3Data">
+  <p>Nessuna carta Mew trovata.</p>
+</div>

@@ -9,33 +9,33 @@ import { Carta1 } from './carta1.model';
 })
 export class Carta1Component implements OnInit {
   
-  carta1Data: Carta1 | null = null;  // Inizializza come null, per una sola carta
-  loading: boolean = true;    // Imposta lo stato di caricamento
-  error: boolean = false;    // Gestione degli errori
+  carta1Data: Carta1 | null = null;  
+  loading: boolean = true;  
+  error: boolean = false;   
 
   constructor(public http: HttpClient) { }
 
   ngOnInit(): void {
-    this.getDittoCard();  // Esegui la richiesta per ottenere la carta Ditto
+    this.getDittoCard(); 
   }
 
-  // Funzione per ottenere la carta Ditto (una sola)
+ 
   getDittoCard(): void {
     this.http.get<{ data: Carta1[] }>('https://api.pokemontcg.io/v2/cards', {
       params: {
-        q: 'name:Ditto'  // Filtro per ottenere solo la carta Ditto
+        q: 'name:Ditto' 
       }
     }).subscribe({
       next: (response) => {
-        // Se ci sono carte Ditto, assegna la prima
+        
         if (response.data.length > 0) {
-          this.carta1Data = response.data[0];  // Mostra solo la prima carta Ditto
+          this.carta1Data = response.data[0];  
         }
         this.loading = false;
       },
       error: () => {
         this.loading = false;
-        this.error = true;   // Se si verifica un errore, mostra un messaggio di errore
+        this.error = true; 
       }
     });
   }

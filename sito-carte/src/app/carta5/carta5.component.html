@@ -1,1 +1,22 @@
-<p>carta5 works!</p>
+<div *ngIf="loading">Caricamento in corso...</div>
+
+<div *ngIf="!loading && carta5Data" class="container card-custom">
+  <div class="card-wrapper">
+    <img [src]="carta5Data?.images?.small" [alt]="carta5Data?.name" class="card-img-left img-fluid" />
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ carta5Data?.name }}</h5>
+        <p class="card-text">Tipo: {{ carta5Data?.types?.join(', ') }}</p>
+        <p class="card-text">Set: {{ carta5Data?.set?.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading && error">
+  <p>Si è verificato un errore nel recuperare la carta Bulbasaur.</p>
+</div>
+
+<div *ngIf="!loading && !carta5Data">
+  <p>Nessuna carta Bulbasaur trovata.</p>
+</div>

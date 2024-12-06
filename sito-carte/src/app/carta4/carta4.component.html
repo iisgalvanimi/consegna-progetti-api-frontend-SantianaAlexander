@@ -1,1 +1,22 @@
-<p>carta4 works!</p>
+<div *ngIf="loading">Caricamento in corso...</div>
+
+<div *ngIf="!loading && carta4Data" class="container card-custom">
+  <div class="card-wrapper">
+    <img [src]="carta4Data?.images?.small" [alt]="carta4Data?.name" class="card-img-left img-fluid" />
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ carta4Data?.name }}</h5>
+        <p class="card-text">Tipo: {{ carta4Data?.types?.join(', ') }}</p>
+        <p class="card-text">Set: {{ carta4Data?.set?.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loading && error">
+  <p>Si è verificato un errore nel recuperare la carta Gengar.</p>
+</div>
+
+<div *ngIf="!loading && !carta4Data">
+  <p>Nessuna carta Gengar trovata.</p>
+</div>

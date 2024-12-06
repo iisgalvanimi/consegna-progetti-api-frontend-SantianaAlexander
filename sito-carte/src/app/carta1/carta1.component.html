@@ -1,13 +1,11 @@
-<div *ngIf="loading">Caricamento in corso...</div>
+<div *ngIf="loading" class="loading">Caricamento in corso...</div>
 
-<!-- Contenitore per immagine e card -->
 <div *ngIf="!loading && carta1Data" class="container card-custom">
-    <div class="row">
-<div class="card-wrapper">
-    <!-- Immagine fuori dalla card, a sinistra -->
-    <img [src]="carta1Data?.images?.small" [alt]="carta1Data?.name" class="card-img-left img-fluid" />
 
-    <!-- Card con i dati a destra dell'immagine -->
+  <div class="card-wrapper">
+    <!-- Immagine -->
+    <img [src]="carta1Data?.images?.small" [alt]="carta1Data?.name" class="card-img-left img-fluid" />
+    <!-- Card con i dati -->
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ carta1Data?.name }}</h5>
@@ -16,16 +14,14 @@
       </div>
     </div>
   </div>
-    </div>
-  
 </div>
 
 <!-- Messaggio di errore -->
-<div *ngIf="!loading && error">
+<div *ngIf="!loading && error" class="error-message">
   <p>Si è verificato un errore nel recuperare la carta Ditto.</p>
 </div>
 
 <!-- Messaggio se non è stata trovata la carta Ditto -->
-<div *ngIf="!loading && !carta1Data">
+<div *ngIf="!loading && !carta1Data" class="no-card-message">
   <p>Nessuna carta Ditto trovata.</p>
 </div>

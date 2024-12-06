@@ -14,6 +14,7 @@ const routes: Routes = [
   {path:'carta3', component: Carta3Component},
   {path:'carta4', component: Carta4Component},
   {path:'carta5', component: Carta5Component},
+  {path: '', redirectTo:'/carta1', pathMatch:'full'}
 ];
 
 @NgModule({
